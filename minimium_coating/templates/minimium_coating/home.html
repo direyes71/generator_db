@@ -1,0 +1,118 @@
+{% extends 'minimium_coating/base.html' %}
+{% load staticfiles %}
+
+{% block css %}
+    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+    <link rel="stylesheet" href="{% static 'css/jsplumb/css/font-awesome.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jsplumb/css/jsplumb.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jsplumb/css/demo.css' %}">
+{% endblock css %}
+
+{% block contents %}
+    <div id="main">
+        <div class="demo statemachine-demo" id="statemachine-demo">
+
+
+            <div class="w" id="opened">A
+                <div class="ep"></div>
+            </div>
+            <div class="w" id="phone1">B
+                <div class="ep"></div>
+            </div>
+            <div class="w" id="phone2">C
+                <div class="ep"></div>
+            </div>
+            <div class="w" id="inperson">D
+                <div class="ep"></div>
+            </div>
+            <div class="w" id="rejected">E
+                <div class="ep"></div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <!--
+    <button class="add_element">Add</button>
+    <button class="clean">Clean</button>
+    -->
+
+    <div>
+        <form id="jsonFile" name="jsonFile" enctype="multipart/form-data" method="post" class="form_file">
+            <fieldset>
+            <h2>Json File</h2>
+                <input type="file" name="file" id="fileinput">
+                <!--<input type="button" id="btnLoad" value="Load">-->
+                <button>Load</button>
+            </fieldset>
+        </form>
+    </div>
+    <div>
+        <form id="form_minimium_coating" data-url="{% url 'calculate_minimium_coating' %}">{% csrf_token %}
+            <input type="hidden" name="dependencies" id="id_dependencies_list" value="[{'AB': 'C'}, {'D': 'EF'}, {'C': 'A'}, {'BE': 'C'}, {'BC': 'D'}, {'CF': 'BD'}, {'ACD': 'B'}, {'CE': 'AF'}]">
+            <button>Calculate</button>
+        </form>
+    </div>
+    <div>
+        <h3>Recubrimiento minimo</h3>
+        <div class="results">
+
+        </div>
+    </div>
+{% endblock contents %}
+
+{% block js %}
+    <!-- JS -->
+    <!-- support lib for bezier stuff -->
+    <script src="{% static 'js/lib/jsBezier-0.6.js' %}"></script>
+    <!-- event adapter -->
+    <script src="{% static 'js/lib/mottle-0.5.js' %}"></script>
+    <!-- geometry functions -->
+    <script src="{% static 'js/lib/biltong-0.2.js' %}"></script>
+    <!-- drag -->
+    <script src="{% static 'js/lib/katavorio-0.6.js' %}"></script>
+    <!-- jsplumb util -->
+    <script src="{% static 'js/src/util.js' %}"></script>
+    <script src="{% static 'js/src/browser-util.js' %}"></script>
+    <!-- base DOM adapter -->
+    <script src="{% static 'js/src/dom-adapter.js' %}"></script>
+    <!-- main jsplumb engine -->
+    <script src="{% static 'js/src/jsPlumb.js' %}"></script>
+    <script src="{% static 'js/src/overlay-component.js' %}"></script>
+    <!-- endpoint -->
+    <script src="{% static 'js/src/endpoint.js' %}"></script>
+    <!-- connection -->
+    <script src="{% static 'js/src/connection.js' %}"></script>
+    <!-- anchors -->
+    <script src="{% static 'js/src/anchors.js' %}"></script>
+    <!-- connectors, endpoint and overlays  -->
+    <script src="{% static 'js/src/defaults.js' %}"></script>
+    <!-- bezier connectors -->
+    <script src="{% static 'js/src/connectors-bezier.js' %}"></script>
+    <!-- state machine connectors -->
+    <script src="{% static 'js/src/connectors-statemachine.js' %}"></script>
+    <!-- flowchart connectors -->
+    <script src="{% static 'js/src/connectors-flowchart.js' %}"></script>
+    <script src="{% static 'js/src/connector-editors.js' %}"></script>
+    <!-- SVG renderer -->
+    <script src="{% static 'js/src/renderers-svg.js' %}"></script>
+
+    <!-- vml renderer -->
+    <script src="{% static 'js/src/renderers-vml.js' %}"></script>
+
+    <!-- common adapter -->
+    <script src="{% static 'js/src/base-library-adapter.js' %}"></script>
+    <!-- no library jsPlumb adapter -->
+    <script src="{% static 'js/src/dom.jsPlumb.js' %}"></script>
+    <!-- /JS -->
+
+    <!--  demo code -->
+
+    <script src="{% static 'js/demo.js' %}"></script>
+
+    <script type="application/javascript" src="{% static 'js/lib/jquery-23.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/lib/jquery.validate.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/app/loadfiles.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/app/minimium_coating.js' %}"></script>
+{% endblock js %}
