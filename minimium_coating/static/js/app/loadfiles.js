@@ -65,7 +65,7 @@ $(document).ready(function(){
 		            var data = JSON.parse(e.target.result);	            
 		            attributes = data.attributes;
 		            dependencies = data.dependencies;
-		            load_data(dependencies);
+		            load_data(attributes, dependencies);
 		        };
 		    }
 	    }	    
@@ -75,7 +75,16 @@ $(document).ready(function(){
   		$('#statemachine-demo').empty();
   	}
 
-  	function load_data(dependencies){
+  	function load_data(attributes, dependencies){
+
+        //Load attributes
+        var attributes_str = '';
+        for(var idx in attributes) {
+            attributes_str += attributes[idx];
+        }
+        $('.attributes_list').val(attributes_str);
+
+        // Load dependencies
   		var targets = {};
         var dependencies_str = '[';
   		for(var idx in dependencies) {
@@ -108,7 +117,7 @@ $(document).ready(function(){
 		}
         // Update dependencies list field
         dependencies_str += ']'
-        $('#id_dependencies_list').val(dependencies_str);
+        $('.dependencies_list').val(dependencies_str);
 		load_connections();
   	}
 

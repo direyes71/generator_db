@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="{% static 'css/jsplumb/css/font-awesome.css' %}">
     <link rel="stylesheet" href="{% static 'css/jsplumb/css/jsplumb.css' %}">
     <link rel="stylesheet" href="{% static 'css/jsplumb/css/demo.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
 {% endblock css %}
 
 {% block contents %}
@@ -50,14 +51,24 @@
     </div>
     <div>
         <form id="form_minimium_coating" data-url="{% url 'calculate_minimium_coating' %}">{% csrf_token %}
-            <input type="hidden" name="dependencies" id="id_dependencies_list" value="[{'AB': 'C'}, {'D': 'EF'}, {'C': 'A'}, {'BE': 'C'}, {'BC': 'D'}, {'CF': 'BD'}, {'ACD': 'B'}, {'CE': 'AF'}]">
-            <button>Calculate</button>
+            <input type="hidden" name="attributes" class="attributes_list" value="ABCDEF">
+            <input type="hidden" name="dependencies" class="dependencies_list" value="[{'AB': 'C'}, {'D': 'EF'}, {'C': 'A'}, {'BE': 'C'}, {'BC': 'D'}, {'CF': 'BD'}, {'ACD': 'B'}, {'CE': 'AF'}]">
+            <button>Calcular recubrimiento minimo</button>
+        </form>
+
+        <form id="form_candidate_key" data-url="{% url 'calculate_candidate_keys' %}">{% csrf_token %}
+            <input type="hidden" name="attributes" class="attributes_list" value="ABCDEF">
+            <input type="hidden" name="dependencies" class="dependencies_list" value="[{'AB': 'C'}, {'D': 'EF'}, {'C': 'A'}, {'BE': 'C'}, {'BC': 'D'}, {'CF': 'BD'}, {'ACD': 'B'}, {'CE': 'AF'}]">
+            <button>Calcular llaves candidatas</button>
         </form>
     </div>
-    <div>
-        <h3>Recubrimiento minimo</h3>
+    <div class="show_results">
+        <h3 id="title_results"></h3>
         <div class="results">
 
+        </div>
+        <div class="details_results">
+            <!--<h4>Detalles</h4>-->
         </div>
     </div>
 {% endblock contents %}

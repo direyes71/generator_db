@@ -1,5 +1,10 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 __author__ = 'diego'
 
+
+import itertools
 import json
 from django.http import HttpResponse
 from django.template.response import TemplateResponse
@@ -14,21 +19,68 @@ def home(request):
     )
 
 
-def calculate_minimium_coating(request):
+def _load_data(request):
+    # Load attributes
+    attributes = request.POST['attributes']
+    attributes = set(attributes)
+
     dependencies = request.POST['dependencies']
     dependencies = eval(dependencies)
+    # Create instances
     functional_set = SetDF()
+    # Load dependencies into set
     for item in dependencies:
         for key in item.iterkeys():
             functional_set.dfs.append(DF(key, item[key]))
+    functional_set.attributes = attributes
+    return functional_set
 
+
+def calculate_minimium_coating(request):
+    # Load dependencies
+    functional_set = _load_data(request)
+    # execute minimal_coating
     f_m = functional_set.minimal_coating()
     fm_list = []
     for i in f_m.dfs:
         fm_list.append(str(i))
-        print i
+
     return HttpResponse(
-        json.dumps({'data': fm_list}),
+        json.dumps({'data': fm_list, 'steps': functional_set.steps}),
+        content_type='application/json',
+    )
+
+
+def calculate_candidate_keys(request):
+    # Load dependencies
+    functional_set = _load_data(request)
+    # execute function to calculate candidate keys
+    determinants = set()
+    f_m = functional_set.minimal_coating()
+    fm_list = []
+    for i in f_m.dfs:
+        fm_list.append(str(i))
+        determinants.update(list(i.X))
+    cand_keys_set = []
+
+    for idx in range(1, len(determinants)):
+        for det in itertools.combinations(determinants, idx):
+            det = "".join(det)
+            if functional_set.attributes == set(f_m.calculate_closing(det)):
+                append = True
+                det = set(list(det))
+                for key in cand_keys_set:
+                    if det.intersection(key) == key:
+                        append = False
+                if append:
+                    cand_keys_set.append(set(list(det)))
+
+    cand_keys = []
+    for key in cand_keys_set:
+        cand_keys.append("".join(key))
+
+    return HttpResponse(
+        json.dumps({'data': cand_keys, 'steps': functional_set.steps}),
         content_type='application/json',
     )
 
@@ -66,6 +118,9 @@ class DF:
 
 class SetDF:
     """Dependency function Set"""
+
+    attributes = []
+
     def __init__(self, copyFrom=None):
         self.dfs = []
         if copyFrom is not None:
@@ -100,6 +155,9 @@ class SetDF:
 
     def minimal_coating(self):
         """calculate of minimal coating"""
+        self.steps = [u'<h3>Pasos desarrollados para el cálculo</h3>']
+        self.steps.append('1 - Simplifica los implicados')
+        self.steps.append('<br />')
         # Step 0
         F0 = SetDF(self)
 
@@ -109,8 +167,12 @@ class SetDF:
             if len(i.Y) > 1:
                 for j in i.Y:
                     F1.dfs.append(DF(i.X, j))
+                    self.steps.append(str(DF(i.X, j)))
             else:
                 F1.dfs.append(i)
+                self.steps.append(str(i))
+
+        self.steps.append('<br />')
 
         # Step 2
         F2 = SetDF(F1)
@@ -121,8 +183,13 @@ class SetDF:
                 if i.Y in c1:
                     Ft = SetDF(F2)
                     Ft.delete_fd(DF(Z, i.Y))
+                    self.steps.append('Elimina ' + Z + ' ' + str(i.Y))
                     Ft.delete_fd(DF(Z.replace(B, ""), i.Y))
+                    self.steps.append('Elimina ' + Z.replace(B, "") + ' ' + str(i.Y))
                     c2 = Ft.calculate_closing(Z.replace(B, ""))
+                    # Add to step
+                    if Z.replace(B, "") and not (Z.replace(B, "") + '+ = ' + c2) in self.steps:
+                        self.steps.append('Calcula' + ' ' + Z.replace(B, "") + '+ = ' + c2)
                     if i.Y in c2:
                         Z = Z.replace(B, "")
 
@@ -133,9 +200,13 @@ class SetDF:
         for i in F2.dfs:
             G = SetDF(Fm)
             G.delete_fd(i)
+            self.steps.append('Elimina ' + ' ' + str(i))
             c = G.calculate_closing(i.X)
             if AttrIsIn(c, i.Y):
                 Fm = G
+                # Add to step
+                if not (str(i.X) + '+ = ' + c) in self.steps:
+                    self.steps.append('Calcula' + ' ' + str(i.X) + '+ = ' + c)
 
         return Fm
 

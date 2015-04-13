@@ -16,5 +16,12 @@ urlpatterns = patterns('',
         name='calculate_minimium_coating'
     ),
 
+    # calculate candidate keys
+    url(
+        r'^calcular-llaves-candidatas/$',
+        'minimium_coating.views.calculate_candidate_keys',
+        name='calculate_candidate_keys'
+    ),
+
     url(r'^admin/', include(admin.site.urls)),
 )
