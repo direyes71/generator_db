@@ -61,6 +61,12 @@
             <input type="hidden" name="dependencies" class="dependencies_list" value="[{'AB': 'C'}, {'D': 'EF'}, {'C': 'A'}, {'BE': 'C'}, {'BC': 'D'}, {'CF': 'BD'}, {'ACD': 'B'}, {'CE': 'AF'}]">
             <button>Calcular llaves candidatas</button>
         </form>
+
+        <form id="form_normalize_3th" data-url="{% url 'normalize_3th' %}">{% csrf_token %}
+            <input type="hidden" name="attributes" class="attributes_list" value="ABCDEF">
+            <input type="hidden" name="dependencies" class="dependencies_list" value="[{'AB': 'C'}, {'D': 'EF'}, {'C': 'A'}, {'BE': 'C'}, {'BC': 'D'}, {'CF': 'BD'}, {'ACD': 'B'}, {'CE': 'AF'}]">
+            <button>Calcular tercera forma normal</button>
+        </form>
     </div>
     <div class="show_results">
         <h3 id="title_results"></h3>

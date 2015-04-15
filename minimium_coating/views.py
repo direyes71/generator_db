@@ -9,9 +9,13 @@ import json
 from django.http import HttpResponse
 from django.template.response import TemplateResponse
 
+from normalize import test
+
 
 def home(request):
     #initialize()
+    test("ABCDEFGH","A->B, ABCD->E, EF->GH, ACDF->EG")
+    test("ABCDEFGHI", "ABH->CK, A->D, C->E, BGH->F, F->AD, E->F, BH->E")
     return TemplateResponse(
         request,
         'minimium_coating/home.html',
@@ -47,6 +51,27 @@ def calculate_minimium_coating(request):
 
     return HttpResponse(
         json.dumps({'data': fm_list, 'steps': functional_set.steps}),
+        content_type='application/json',
+    )
+
+
+def normalize_3th(request):
+    """Function to calculate the 3th normalize
+    """
+    attributes = request.POST['attributes']
+    dependencies = eval(request.POST['dependencies'])
+    dependencies_list = []
+    for dep in dependencies:
+        for key, val in dep.iteritems():
+            dependencies_list.append(key + '->' + val)
+    dependencies = ', '.join(dependencies_list)
+    result = eval(test(attributes, dependencies))
+    data = []
+    for item in result:
+        print item
+        data.append(u'({0}, {1})'.format(item[0], item[1]))
+    return HttpResponse(
+        json.dumps({'data': data, 'steps': []}),
         content_type='application/json',
     )
 

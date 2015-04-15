@@ -37,6 +37,21 @@ $(document).ready(function(){
         });
     });
 
+    $('#form_normalize_3th').submit(function(evt){
+        evt.preventDefault();
+        var url = $(this).data('url');
+        var data = $(this).serialize();
+        tittle_results = 'Tercera forma normal';
+        $.ajax({
+            url: url,
+            type: 'POST',
+            async: true,
+            data: data,
+            success: process_response,
+            error: error_message
+        });
+    });
+
     function process_response(response){
         $('#title_results').html(tittle_results);
         var html = '<ol>'

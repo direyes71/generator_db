@@ -35,7 +35,16 @@
       <file leaf-file-name="minimium_coating.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/minimium_coating/static/js/app/minimium_coating.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="16" selection-start="1329" selection-end="1329" vertical-scroll-proportion="0.0" vertical-offset="476" max-vertical-offset="975">
+            <state line="63" column="25" selection-start="1728" selection-end="1728" vertical-scroll-proportion="0.0" vertical-offset="714" max-vertical-offset="1200">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/minimium_coating/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="27" selection-start="650" selection-end="663" vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="585">
               <folding />
             </state>
           </provider>
@@ -50,13 +59,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/minimium_coating/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="30" selection-start="1709" selection-end="1709" vertical-scroll-proportion="0.32038835" vertical-offset="939" max-vertical-offset="3960">
+            <state line="70" column="18" selection-start="1860" selection-end="1860" vertical-scroll-proportion="0.0" vertical-offset="854" max-vertical-offset="4335">
               <folding>
                 <element signature="e#70#86#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="normalize.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/minimium_coating/normalize.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="139" column="20" selection-start="3442" selection-end="3442" vertical-scroll-proportion="0.5020747" vertical-offset="1964" max-vertical-offset="2400">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -73,7 +91,7 @@
       <file leaf-file-name="home.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/minimium_coating/templates/minimium_coating/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="10" selection-start="2562" selection-end="2562" vertical-scroll-proportion="-6.875" vertical-offset="780" max-vertical-offset="2010">
+            <state line="64" column="36" selection-start="2571" selection-end="2589" vertical-scroll-proportion="-4.75" vertical-offset="846" max-vertical-offset="2100">
               <folding />
             </state>
           </provider>
@@ -112,15 +130,16 @@
         <option value="$PROJECT_DIR$/minimium_coating/static/js/lib/jquery-23.min.js" />
         <option value="$PROJECT_DIR$/minimium_coating/templates/minimium_coating/base.html" />
         <option value="$PROJECT_DIR$/sources/json_4.json" />
-        <option value="$PROJECT_DIR$/minimium_coating/urls.py" />
         <option value="$PROJECT_DIR$/minimium_coating/static/js/app/loadfiles.js" />
         <option value="$PROJECT_DIR$/sources/json_5.json" />
         <option value="$PROJECT_DIR$/minimium_coating/static/css/main.css" />
         <option value="$PROJECT_DIR$/sources/json_6.json" />
-        <option value="$PROJECT_DIR$/minimium_coating/static/js/app/minimium_coating.js" />
-        <option value="$PROJECT_DIR$/minimium_coating/templates/minimium_coating/home.html" />
         <option value="$PROJECT_DIR$/sources/json_7.json" />
+        <option value="$PROJECT_DIR$/minimium_coating/urls.py" />
+        <option value="$PROJECT_DIR$/minimium_coating/templates/minimium_coating/home.html" />
+        <option value="$PROJECT_DIR$/minimium_coating/static/js/app/minimium_coating.js" />
         <option value="$PROJECT_DIR$/minimium_coating/views.py" />
+        <option value="$PROJECT_DIR$/minimium_coating/normalize.py" />
       </list>
     </option>
   </component>
@@ -185,6 +204,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="sources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="minimium_coating" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="minimium_coating" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="minimium_coating" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -525,7 +558,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -732,13 +765,6 @@
         <state line="316" column="8" selection-start="11359" selection-end="11359" vertical-scroll-proportion="0.33333334" vertical-offset="4375" max-vertical-offset="7290" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/minimium_coating/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="38" selection-start="689" selection-end="689" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="480">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/minimium_coating/static/js/src/jsPlumb.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2252" column="34" selection-start="102311" selection-end="102311" vertical-scroll-proportion="-1.1138614" vertical-offset="33780" max-vertical-offset="44895">
@@ -802,27 +828,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/minimium_coating/static/js/app/loadfiles.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="146" column="0" selection-start="4302" selection-end="4302" vertical-scroll-proportion="-8.6" vertical-offset="1889" max-vertical-offset="3960">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/minimium_coating/static/js/app/minimium_coating.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="16" selection-start="1329" selection-end="1329" vertical-scroll-proportion="0.0" vertical-offset="476" max-vertical-offset="975">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/minimium_coating/templates/minimium_coating/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="10" selection-start="2562" selection-end="2562" vertical-scroll-proportion="-6.875" vertical-offset="780" max-vertical-offset="2010">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sources/json_6.json">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="32" selection-start="0" selection-end="208" vertical-scroll-proportion="-6.875" vertical-offset="0" max-vertical-offset="315">
@@ -837,12 +842,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/minimium_coating/static/js/app/loadfiles.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="146" column="0" selection-start="4302" selection-end="4302" vertical-scroll-proportion="-8.6" vertical-offset="1889" max-vertical-offset="3960">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/minimium_coating/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="27" selection-start="650" selection-end="663" vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="585">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/minimium_coating/templates/minimium_coating/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="64" column="36" selection-start="2571" selection-end="2589" vertical-scroll-proportion="-4.75" vertical-offset="846" max-vertical-offset="2100">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/minimium_coating/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="30" selection-start="1709" selection-end="1709" vertical-scroll-proportion="0.32038835" vertical-offset="939" max-vertical-offset="3960">
+        <state line="70" column="18" selection-start="1860" selection-end="1860" vertical-scroll-proportion="0.0" vertical-offset="854" max-vertical-offset="4335">
           <folding>
             <element signature="e#70#86#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/minimium_coating/static/js/app/minimium_coating.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="25" selection-start="1728" selection-end="1728" vertical-scroll-proportion="0.0" vertical-offset="714" max-vertical-offset="1200">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/minimium_coating/normalize.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="139" column="20" selection-start="3442" selection-end="3442" vertical-scroll-proportion="0.5020747" vertical-offset="1964" max-vertical-offset="2400">
+          <folding />
         </state>
       </provider>
     </entry>

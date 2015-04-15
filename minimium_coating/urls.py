@@ -16,6 +16,13 @@ urlpatterns = patterns('',
         name='calculate_minimium_coating'
     ),
 
+    # calculate 3th normal form
+    url(
+        r'^calcular-forma-normal/$',
+        'minimium_coating.views.normalize_3th',
+        name='normalize_3th'
+    ),
+
     # calculate candidate keys
     url(
         r'^calcular-llaves-candidatas/$',
